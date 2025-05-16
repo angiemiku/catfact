@@ -1,5 +1,5 @@
 const btn = document.querySelector("button");
-const para = document.querySelector("p");
+const facts = document.querySelector("p");
 
 const getData = async () => {
   const res = await axios.get('https://catfact.ninja/fact');
@@ -9,8 +9,9 @@ const getData = async () => {
 
 btn.addEventListener("click", async () => {
   try {
-    para.innerText = await getData();
-  } catch {
-    para.innerText = "Something went wrong, pls try again later :(";
+    facts.innerText = await getData();
+  } catch (e) {
+    console.log('Error:', e);
+    facts.innerText = "Something went wrong, pls try again later :(";
   }
 });
